@@ -1,8 +1,6 @@
 import { StyledButton, StyledInput } from "components/Phonebook/Phonebook.styled"
 import React, { useState } from "react";
 import { StyledContactForm } from "./ContactForm.styled";
-import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from "nanoid";
 
 const INITIAL_STATE = {
   name: '',
@@ -11,8 +9,6 @@ const INITIAL_STATE = {
 
 export const ContactForm = ({ onAddContact }) => {
   const [formState, setFormState] = useState(INITIAL_STATE)
-  const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contactsData.contacts);
 
   const handleChangeInput = e => {
     const { target } = e;
