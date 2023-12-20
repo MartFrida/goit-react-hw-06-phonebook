@@ -16,15 +16,17 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  blacklist: ['filter']
 }
+const persistedReducer = persistReducer(persistConfig, contactsReducer)
+
 const rootReducer = combineReducers({
-  contactsData: contactsReducer,
+  contactsData: persistedReducer,
 })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

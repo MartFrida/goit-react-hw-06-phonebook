@@ -25,7 +25,6 @@ const contactsSlice = createSlice({
     setFilter: (state, { payload }) => {
       state.filter = payload
     },
-
   }
 })
 
